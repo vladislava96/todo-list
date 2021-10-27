@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import AppHeader from './components/app-header';
+import TodoList from './components/todo-list';
+import SearchPanel from './components/search-panel';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  const isLoggedIn = false;
+  const loginBox = <span>Log in please</span>;
+  const welcomeBox = <span>Welcome Back</span>;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  return (
+    <div>
+      {isLoggedIn ? welcomeBox : loginBox}
+      <AppHeader />
+      <TodoList />
+      <SearchPanel />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, 
+  document.getElementById('root'));
